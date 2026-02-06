@@ -4,7 +4,7 @@ uvicorn[standard]==0.24.0
 python-multipart==0.0.6
 
 # Google Cloud
-google-cloud-documentai==2.21.0
+google-cloud-documentai==3.9.0
 google-cloud-storage==2.10.0
 
 # Database
