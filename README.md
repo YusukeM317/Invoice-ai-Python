@@ -335,7 +335,7 @@ This project demonstrates:
 
 ## 👨‍💻 **About the Developer**
 
-**Yusuke Morimoto** - Oracle ERP Expert transitioning to AI/ML Engineering
+**Yusuke Morimoto** - Backend-AI Development Expert transitioning to AI/ML Engineering
 
 - 📧 **Email**: yusukemorimoto234@gmail.com
 
