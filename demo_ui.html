@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Processing AI - Demo UI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1f77b4 0%, #2196f3 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .status-bar {
+            background: #28a745;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .main-content {
+            padding: 40px;
+        }
+        
+        .upload-section {
+            border: 3px dashed #1f77b4;
+            border-radius: 15px;
+            padding: 60px;
+            text-align: center;
+            background: #f8f9fa;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upload-section:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+        
+        .upload-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .upload-section h2 {
+            color: #1f77b4;
+            margin-bottom: 10px;
+        }
+        
+        .upload-section p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1f77b4 0%, #2196f3 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(31, 119, 180, 0.3);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            color: #1f77b4;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .demo-results {
+            margin-top: 40px;
+            padding: 30px;
+            background: #e3f2fd;
+            border-radius: 15px;
+            border-left: 5px solid #1f77b4;
+        }
+        
+        .demo-results h2 {
+            color: #1f77b4;
+            margin-bottom: 20px;
+        }
+        
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .result-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .result-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .result-value {
+            color: #1f77b4;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .note strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📄 Invoice Processing AI</h1>
+            <p>Advanced invoice processing using Google Document AI</p>
+        </div>
+        
+        <div class="status-bar">
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>API Status: Demo Mode</span>
+            </div>
+            <div>Version 2.0.0</div>
+        </div>
+        
+        <div class="main-content">
+            <div class="note">
+                <strong>📌 Demo UI Preview</strong><br>
+                This is a static HTML preview of the Invoice Processing AI interface. 
+                To run the full application with Streamlit, install dependencies with: 
+                <code>pip install -r requirements.txt</code>
+            </div>
+            
+            <div class="upload-section" onclick="alert('In the real app, you can drag & drop invoice files here!')">
+                <div class="upload-icon">📤</div>
+                <h2>Upload Invoice Document</h2>
+                <p>Drag & drop your invoice file here or click to browse</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    Supported: PDF, PNG, JPG, JPEG, TIFF, GIF (Max 10MB)
+                </p>
+                <button class="btn-primary" onclick="event.stopPropagation(); alert('Processing demo invoice...')">
+                    🚀 Process Invoice
+                </button>
+            </div>
+            
+            <div class="demo-results">
+                <h2>📊 Sample Extraction Results</h2>
+                <p>Here's what the AI extracts from your invoices:</p>
+                
+                <div class="result-grid">
+                    <div class="result-item">
+                        <div class="result-label">Vendor Name</div>
+                        <div class="result-value">Acme Corp</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Invoice Number</div>
+                        <div class="result-value">INV-2025-001</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Total Amount</div>
+                        <div class="result-value">$1,250.00</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Invoice Date</div>
+                        <div class="result-value">2025-06-28</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Processing Time</div>
+                        <div class="result-value">3.2s</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Confidence</div>
+                        <div class="result-value">95.8%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered</h3>
+                    <p>Uses Google Document AI for accurate data extraction from invoices</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Processing</h3>
+                    <p>Process invoices in 3-9 seconds with 95%+ accuracy</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Structured Data</h3>
+                    <p>Extract vendor info, amounts, dates, and line items automatically</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Batch Processing</h3>
+                    <p>Process up to 10 invoices simultaneously for efficiency</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>🚀 Invoice Processing AI</strong> - Powered by Google Document AI</p>
+            <p style="margin-top: 10px;">Built with FastAPI + Streamlit | Production Ready</p>
+            <p style="margin-top: 20px; font-size: 0.9rem;">
+                To run the full application:<br>
+                1. Install dependencies: <code>pip install -r requirements.txt</code><br>
+                2. Start backend: <code>python src/api/main.py</code><br>
+                3. Start frontend: <code>streamlit run frontend/app.py</code>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

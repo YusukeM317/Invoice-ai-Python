@@ -11,9 +11,9 @@ updates:
       time: "04:00"
     open-pull-requests-limit: 10
     reviewers:
-      - "ypratap11"
+      - "YukeM317"
     assignees:
-      - "ypratap11"
+      - "YukeM317"
     commit-message:
       prefix: "deps"
       prefix-development: "deps-dev"
@@ -37,7 +37,7 @@ updates:
       time: "04:00"
     open-pull-requests-limit: 5
     reviewers:
-      - "ypratap11"
+      - "YukeM317"
     commit-message:
       prefix: "docker"
       include: "scope"
@@ -54,7 +54,7 @@ updates:
       time: "04:00"
     open-pull-requests-limit: 5
     reviewers:
-      - "ypratap11"
+      - "YukeM317"
     commit-message:
       prefix: "ci"
       include: "scope"
@@ -71,7 +71,7 @@ updates:
       time: "04:00"
     open-pull-requests-limit: 3
     reviewers:
-      - "ypratap11"
+      - "YukeM317"
     commit-message:
       prefix: "helm"
       include: "scope"

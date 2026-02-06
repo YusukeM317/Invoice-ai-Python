@@ -119,7 +119,7 @@ An end-to-end AI-powered invoice processing system that automates document proce
 
 ### **1. Clone Repository**
 ```bash
-git clone https://github.com/ypratap11/invoice-processing-ai.git
+git clone https://github.com/YusukeM317/Invoice-ai-Python.git
 cd invoice-processing-ai
 ```
 
@@ -335,12 +335,10 @@ This project demonstrates:
 
 ## 👨‍💻 **About the Developer**
 
-**Yeragudipati Pratap** - Oracle ERP Expert transitioning to AI/ML Engineering
+**Yusuke Morimoto** - Oracle ERP Expert transitioning to AI/ML Engineering
 
-- 💼 **LinkedIn**: [Connect with me](https://www.linkedin.com/in/pratapyeragudipati/)
-- 📧 **Email**: ypratap114u@gmail.com
-- 🌐 **GitHub**: [View more projects](https://github.com/ypratap11)
-- 💻 **Portfolio**: [Live Projects](https://github.com/ypratap11?tab=repositories)
+- 📧 **Email**: yusukemorimoto234@gmail.com
+
 
 ### **Background**
 Leveraging years of ERP consulting experience to build AI solutions that solve real business problems. This project combines domain expertise in financial processes with cutting-edge AI technology.

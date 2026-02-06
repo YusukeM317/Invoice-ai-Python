@@ -5,11 +5,11 @@ description: A Helm chart for Invoice Processing AI application with FastAPI bac
 type: application
 version: 1.0.0
 appVersion: "1.0.0"
-home: https://github.com/ypratap11/invoice-processing-ai
+home: https://github.com/YusukeM317/Invoice-ai-Python
 sources:
-  - https://github.com/ypratap11/invoice-processing-ai
+  - https://github.com/YusukeM317/Invoice-ai-Python
 maintainers:
-  - name: ypratap11
+  - name: YusukeM317
     email: your.email@example.com
 keywords:
   - ai
