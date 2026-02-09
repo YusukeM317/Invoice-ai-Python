@@ -18,7 +18,7 @@ python-dateutil==2.8.2
 
 # Frontend
 streamlit==1.28.2
-pillow==10.1.0
+pillow==12.1.0
 plotly==5.18.0
 requests==2.31.0
 pandas==2.1.4
