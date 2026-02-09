@@ -13,7 +13,7 @@ sqlalchemy==2.0.25
 # Utilities
 python-dotenv==1.0.0
 pydantic==2.5.0
-pydantic-settings==2.1.0
+pydantic-settings==2.12.0
 python-dateutil==2.8.2
 
 # Frontend
